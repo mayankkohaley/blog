@@ -1,0 +1,9 @@
+- @title = @posts.title
+#show
+  .post
+    .title= @posts.title
+    .date= time_ago_in_words(@posts.created_at || Time.now) + ' ago'
+    .body= simple_format(@posts.body)
+    .details
+      .author Posted by #{ @posts.account.email }
+%p= link_to 'View all posts', url_for(:posts, :index)
